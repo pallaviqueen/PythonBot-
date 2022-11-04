@@ -24,4 +24,4 @@ jobs:
       - name: Run a one-line script
         run: |
           pip install -r requirements.txt
-          python3 udemy.py
+          python3 udemy.py  ${{secrets.SENDER_EMAIL}} ${{secrets.REC_EMAIL}} ${{secrets.PASSWORD}}
