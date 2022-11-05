@@ -33,7 +33,11 @@ jobs:
           s_e: ${{secrets.SENDER_EMAIL}}
           r_e:  ${{secrets.REC_EMAIL}}
           pass: ${{secrets.PASSWORD}}
-          time: ${{secrets.TIME_DATA}}
         run: |
           python3 udemy.py
+          git config user.name ${{secrets.GH_USERNAME}}
+          git config user.email ${{secrets.GH_EMAIL}
+          git add .
+          git commit -m "Changed time"
+          git push origin
 
