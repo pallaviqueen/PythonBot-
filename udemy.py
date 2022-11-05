@@ -4,11 +4,11 @@ from datetime import datetime
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import sys
+import os
 
-sender_email = sys.argv[0]
-receiver_email = sys.argv[1]
-password = sys.argv[2]
+sender_email = os.environ['s_e']
+receiver_email = os.environ['r_e']
+password = os.environ['pass']
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "Udemy free course link"
