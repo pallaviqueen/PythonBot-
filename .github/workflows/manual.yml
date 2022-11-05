@@ -33,6 +33,7 @@ jobs:
           s_e: ${{secrets.SENDER_EMAIL}}
           r_e:  ${{secrets.REC_EMAIL}}
           pass: ${{secrets.PASSWORD}}
+          time: ${{secrets.TIME_DATA}}
         run: |
           python3 udemy.py
 
