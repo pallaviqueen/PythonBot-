@@ -31,6 +31,7 @@ def Sender(category,desp,image,u_link):
       font-weight:bolder;
       background:#a200ff;
       border-radius:5px;
+      margin-left:calc(50% - 60px);
 }
 
 a{
