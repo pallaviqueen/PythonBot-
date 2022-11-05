@@ -64,7 +64,7 @@ for i in data['results'][::-1]:
                 else:
                     eLink = i['url']
                     Link = eLink[eLink.index('https'):]
-                Sender(Category,Name,Image,Link)
+                #Sender(Category,Name,Image,Link)
                 send += 1
                 print(f'{send} link has been send')
 writefile = open('till_time.txt','w').write(i['sale_start'][:25])
