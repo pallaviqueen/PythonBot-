@@ -1,6 +1,7 @@
 import requests
 import json
 from datetime import datetime
+from dateutil import parser
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -53,7 +54,7 @@ data = json.loads(response.text)
 Category = ''
 Name = ''
 file = open('till_time.txt','r').readline()
-Time = datetime.strptime(file, '%a, %d %b %Y %H:%M:%S')
+Time = parser.parse(str(file))
 print(f'Time :- {Time}')
 send = 0
 
