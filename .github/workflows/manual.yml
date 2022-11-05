@@ -34,6 +34,7 @@ jobs:
           r_e:  ${{secrets.REC_EMAIL}}
           pass: ${{secrets.PASSWORD}}
         run: |
+          pip install -r requirements.txt
           python3 udemy.py
           git config user.name ${{secrets.GH_USERNAME}}
           git config user.email ${{secrets.GH_EMAIL}}
