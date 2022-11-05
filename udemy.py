@@ -12,31 +12,31 @@ receiver_email = os.environ['r_e']
 password = os.environ['pass']
 
 message = MIMEMultipart("alternative")
-message["Subject"] = "Udemy free course link"
+message["Subject"] = "Udemy free coupon code & course link"
 message["From"] = sender_email
-message["To"] = receiver_email
-
 
 def Sender(category,desp,image,u_link):
-    html = """\
-    <html>
-      <body>
-        <h2>Category : <font style='color:#a200ff'>"""+category+"""</font></h2>
-        <h3><font style='color:#a200ff'>Name : </font>"""+desp+"""</h3>
-        <img src='"""+image+"""'>
-        <button style='border:none;outline:none;height:60px;width:120px;color:#fff;font-size:20px;font-weight:bolder;background:#a200ff;border-radius:5px;margin:0 auto;display:block;'><a style='color:#fff;text-decoration:none;' href='"""+u_link+"""'>Enroll Now</a></button>
-      </body>
-    </html>
-    """
-
-    part2 = MIMEText(html, "html")
-    message.attach(part2)
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(
-            sender_email, receiver_email, message.as_string()
-        )
+    for rec_email in receiver_email:
+        message["To"] = rec_email
+        html = """\
+        <html>
+          <body>
+            <h2>Category : <font style='color:#a200ff'>"""+category+"""</font></h2>
+            <h3><font style='color:#a200ff'>Name : </font>"""+desp+"""</h3>
+            <img src='"""+image+"""'>
+            <button style='border:none;outline:none;height:60px;width:120px;color:#fff;font-size:20px;font-weight:bolder;background:#a200ff;border-radius:5px;margin:0 auto;display:block;'><a style='color:#fff;text-decoration:none;' href='"""+u_link+"""'>Enroll Now</a></button>
+          </body>
+        </html>
+        """
+    
+        part2 = MIMEText(html, "html")
+        message.attach(part2)
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+            server.login(sender_email, password)
+            server.sendmail(
+                sender_email, receiver_email, message.as_string()
+            )
 
 url = "https://www.real.discount/api-web/all-courses/?store=Udemy&page=1&per_page=10000&orderby=date&free=1&search=&language=English"
 
@@ -71,5 +71,5 @@ for i in data['results'][::-1]:
             except:
                 send += 1
                 print(f"{send} no. link failed due to time format not matched , \nTime :- {i['sale_start'][:25]} & Name :- {i['name']}")
-#writefile = open('till_time.txt','w').write(i['sale_start'][:25])
+writefile = open('till_time.txt','w').write(i['sale_start'][:25])
 print('process completed...')
