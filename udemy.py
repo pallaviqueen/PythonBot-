@@ -20,7 +20,6 @@ message["To"] = receiver_email
 def Sender(category,desp,image,u_link):
     html = """\
     <html>
-      <body>
       <style>
       h2,h3,p {
         color: #c45edd;
@@ -29,6 +28,7 @@ def Sender(category,desp,image,u_link):
         color: #fff;
       }
       </style>
+      <body>
         <h2>Category : <p class='white'>"""+category+"""</p></h2>
         <h3>Name : <p class='white'>"""+desp+"""</span></h3>
         <img src='"""+image+"""'>
