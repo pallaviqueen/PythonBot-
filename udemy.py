@@ -23,10 +23,10 @@ def Sender(category,desp,image,u_link):
       <body>
       <style>
       body {
-        background: #c45edd;
+        color: #c45edd;
       }
       span {
-        background: #fff;
+        color: #fff;
       }
       </style>
         <h2>Category : <span>"""+category+"""</span></h2>
