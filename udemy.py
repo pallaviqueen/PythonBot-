@@ -68,6 +68,7 @@ for i in data['results'][::-1]:
                     send += 1
                     print(f'{send} link has been send')
             except:
+                send += 1
                 print(f"{send} no. link failed due to time format not matched , \nTime :- {i['sale_start'][:25]} & Name :- {i['name']}")
 writefile = open('till_time.txt','w').write(i['sale_start'][:25])
 print('process completed...')
