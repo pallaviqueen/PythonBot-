@@ -20,30 +20,11 @@ message["To"] = receiver_email
 def Sender(category,desp,image,u_link):
     html = """\
     <html>
-      <style>
-      button {
-      border:none;
-      outline:none;
-      height:60px;
-      width:120px;
-      color:#fff;
-      font-size: 20px;
-      font-weight:bolder;
-      background:#a200ff;
-      border-radius:5px;
-      margin-left:calc(50% - 60px);
-}
-
-a{
-    color:#fff;
-    text-decoration:none;
-}
-      </style>
       <body>
         <h2>Category : <font style='color:#a200ff'>"""+category+"""</font></h2>
         <h3><font style='color:#a200ff'>Name : </font>"""+desp+"""</h3>
         <img src='"""+image+"""'>
-        <button><a href='"""+u_link+"""'>Enroll Now</a></button>
+        <button style='border:none;outline:none;height:60px;width:120px;color:#fff;font-size:20px;font-weight:bolder;background:#a200ff;border-radius:5px;margin-left:calc(50%-60px);'><a style='color:#fff;text-decoration:none;' href='"""+u_link+"""'>Enroll Now</a></button>
       </body>
     </html>
     """
