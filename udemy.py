@@ -52,24 +52,20 @@ send = 0
 for i in data['results'][::-1]:
     if 'category' in i:
         if i['category']: #in ['Development','IT & Software']:
-            try:
-                curr = datetime.strptime(i["sale_start"][:25], '%a, %d %b %Y %H:%M:%S')
-                #print(f'Current :- {curr}')
-                if (Time < curr):
-                    print('success')
-                    Category = i['category']
-                    Name = i['name']
-                    Image = i['image']
-                    if ('https' == i['url'][:5]):
-                        Link = i['url']
-                    else:
-                        eLink = i['url']
-                        Link = eLink[eLink.index('https'):]
-                    Sender(Category,Name,Image,Link)
-                    send += 1
-                    print(f'{send} link has been send')
-            except:
+            curr = datetime.strptime(i["sale_start"][:25], '%a, %d %b %Y %H:%M:%S')
+            #print(f'Current :- {curr}')
+            if (Time < curr):
+                print('success')
+                Category = i['category']
+                Name = i['name']
+                Image = i['image']
+                if ('https' == i['url'][:5]):
+                    Link = i['url']
+                else:
+                    eLink = i['url']
+                    Link = eLink[eLink.index('https'):]
+                Sender(Category,Name,Image,Link)
                 send += 1
-                print(f"{send} no. link failed due to time format not matched , \nTime :- {i['sale_start'][:25]} & Name :- {i['name']}")
+                print(f'{send} link has been send')
 writefile = open('till_time.txt','w').write(i['sale_start'][:25])
 print('process completed...')
