@@ -7,17 +7,16 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
-receiver_email = str(os.environ['r_e']).strip('][').split(', ')
-print(receiver_email)
+sender_email = os.environ['s_e']
+receiver_email = os.environ['r_e']
+password = os.environ['pass']
+
+message = MIMEMultipart("alternative")
+message["Subject"] = "Udemy free coupon code & course link"
+message["From"] = sender_email
 
 def Sender(category,desp,image,u_link):
     for rec_email in receiver_email:
-        sender_email = os.environ['s_e']
-        password = os.environ['pass']
-
-        message = MIMEMultipart("alternative")
-        message["Subject"] = "Udemy free coupon code & course link"
-        message["From"] = sender_email
         message["To"] = rec_email
         html = """\
         <html>
@@ -29,7 +28,7 @@ def Sender(category,desp,image,u_link):
           </body>
         </html>
         """
-    
+
         part2 = MIMEText(html, "html")
         message.attach(part2)
         context = ssl.create_default_context()
@@ -56,21 +55,20 @@ for i in data['results'][::-1]:
         if i['category']: #in ['Development','IT & Software']:
             try:
                 curr = datetime.strptime(i["sale_start"][:25], '%a, %d %b %Y %H:%M:%S')
-                #print(f'Current :- {curr}')
-                if (Time < curr):
-                    Category = i['category']
-                    Name = i['name']
-                    Image = i['image']
-                    if ('https' == i['url'][:5]):
-                        Link = i['url']
-                    else:
-                        eLink = i['url']
-                        Link = eLink[eLink.index('https'):]
-                    Sender(Category,Name,Image,Link)
-                    send += 1
-                    print(f'{send} link has been send')
             except:
+                curr = parser.parse(str(i["sale_start"][:25]))
+            #print(f'Current :- {curr}')
+            if (Time < curr):
+                Category = i['category']
+                Name = i['name']
+                Image = i['image']
+                if ('https' == i['url'][:5]):
+                    Link = i['url']
+                else:
+                    eLink = i['url']
+                    Link = eLink[eLink.index('https'):]
+                Sender(Category,Name,Image,Link)
                 send += 1
-                print(f"{send} no. link failed due to time format not matched , \nTime :- {i['sale_start'][:25]} & Name :- {i['name']}")
+                print(f'{send} link has been send')
 writefile = open('till_time.txt','w').write(i['sale_start'][:25])
 print('process completed...')
