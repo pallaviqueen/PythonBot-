@@ -15,7 +15,7 @@ message["Subject"] = "Udemy free course link"
 message["From"] = sender_email
 message["To"] = receiver_email
 
-
+print('Details',sender_email,receiver_email,password)
 def Sender(category,desp,image,u_link):
     html = """\
     <html>
