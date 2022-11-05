@@ -7,16 +7,16 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
-sender_email = os.environ['s_e']
-receiver_email = os.environ['r_e']
-password = os.environ['pass']
-
-message = MIMEMultipart("alternative")
-message["Subject"] = "Udemy free coupon code & course link"
-message["From"] = sender_email
+receiver_email = str(os.environ['r_e']).strip('][').split(', ')
+print(receiver_email)
 
 def Sender(category,desp,image,u_link):
     for rec_email in receiver_email:
+        sender_email = os.environ['s_e']
+        password = os.environ['pass']
+        message = MIMEMultipart("alternative")
+        message["Subject"] = "Udemy free coupon code & course link"
+        message["From"] = sender_email
         message["To"] = rec_email
         html = """\
         <html>
