@@ -54,7 +54,7 @@ for i in data['results'][::-1]:
         if i['category']: #in ['Development','IT & Software']:
             try:
                 curr = datetime.strptime(i["sale_start"][:25], '%a, %d %b %Y %H:%M:%S')
-                #print(f'Current :- {curr}')
+                print(f'Current :- {curr}')
                 if (Time < curr):
                     Category = i['category']
                     Name = i['name']
