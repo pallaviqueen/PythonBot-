@@ -28,3 +28,8 @@ jobs:
           pass: ${{secrets.PASSWORD}}
         run: |
           python3 udemy.py
+          git config user.name ${{secrets.GH_USERNAME}}
+          git config user.email ${{secrets.GH_EMAIL}}
+          git add .
+          git commit -m "Changed time"
+          git push origin
