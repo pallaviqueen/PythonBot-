@@ -29,7 +29,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        env:
+          s_e: ${{secrets.SENDER_EMAIL}}
+          r_e:  ${{secrets.REC_EMAIL}}
+          pass: ${{secrets.PASSWORD}}
         run: |
-          pip install -r requirements.txt
-          python3 udemy.py  ${{secrets.SENDER_EMAIL}} ${{secrets.REC_EMAIL}} ${{secrets.PASSWORD}}
+          pip install
+          python3 udemy.py
 
