@@ -43,7 +43,7 @@ a{
         <h2>Category : <font style='color:#a200ff'>"""+category+"""</font></h2>
         <h3><font style='color:#a200ff'>Name : </font>"""+desp+"""</h3>
         <img src='"""+image+"""'>
-        <button><a href='"""+u_link+'>Enroll Now</a>"""</button>
+        <button><a href='"""+u_link+"""'>Enroll Now</a></button>
       </body>
     </html>
     """
