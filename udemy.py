@@ -21,13 +21,28 @@ def Sender(category,desp,image,u_link):
     html = """\
     <html>
       <style>
-      
+      button {
+      border:none;
+      outline:none;
+      height:60px;
+      width:120px;
+      color:#fff;
+      font-size: 20px;
+      font-weight:bolder;
+      background:#a200ff;
+      border-radius:5px;
+}
+
+a{
+    color:#fff;
+    text-decoration:none;
+}
       </style>
       <body>
         <h2>Category : <font style='color:#a200ff'>"""+category+"""</font></h2>
         <h3><font style='color:#a200ff'>Name : </font>"""+desp+"""</h3>
         <img src='"""+image+"""'>
-        <br><p><font style='color:#a200ff'>Link : </font>"""+u_link+"""</p>
+        <button><a href='"""+u_link+'>Enroll Now</a>"""</button>
       </body>
     </html>
     """
