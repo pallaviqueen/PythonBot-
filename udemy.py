@@ -9,13 +9,13 @@ import sys
 sender_email = sys.argv[0]
 receiver_email = sys.argv[1]
 password = sys.argv[2]
-print(sender_email,receiver_email,password)
+
 message = MIMEMultipart("alternative")
 message["Subject"] = "Udemy free course link"
 message["From"] = sender_email
 message["To"] = receiver_email
 
-print('Details',sender_email,receiver_email,password)
+
 def Sender(category,desp,image,u_link):
     html = """\
     <html>
@@ -52,20 +52,22 @@ send = 0
 for i in data['results'][::-1]:
     if 'category' in i:
         if i['category']: #in ['Development','IT & Software']:
-            curr = datetime.strptime(i["sale_start"][:25], '%a, %d %b %Y %H:%M:%S')
-            #print(f'Current :- {curr}')
-            if (Time < curr):
-                print('success')
-                Category = i['category']
-                Name = i['name']
-                Image = i['image']
-                if ('https' == i['url'][:5]):
-                    Link = i['url']
-                else:
-                    eLink = i['url']
-                    Link = eLink[eLink.index('https'):]
-                #Sender(Category,Name,Image,Link)
-                send += 1
-                print(f'{send} link has been send')
+            try:
+                curr = datetime.strptime(i["sale_start"][:25], '%a, %d %b %Y %H:%M:%S')
+                #print(f'Current :- {curr}')
+                if (Time < curr):
+                    Category = i['category']
+                    Name = i['name']
+                    Image = i['image']
+                    if ('https' == i['url'][:5]):
+                        Link = i['url']
+                    else:
+                        eLink = i['url']
+                        Link = eLink[eLink.index('https'):]
+                    Sender(Category,Name,Image,Link)
+                    send += 1
+                    print(f'{send} link has been send')
+            except:
+                print(f"{send} no. link failed due to time format not matched , \nTime :- {i['sale_start'][:25]} & Name :- {i['name']}")
 writefile = open('till_time.txt','w').write(i['sale_start'][:25])
 print('process completed...')
