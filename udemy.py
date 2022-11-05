@@ -24,14 +24,14 @@ def Sender(category,desp,image,u_link):
       body {
         background: #c45edd;
       }
-      p .white {
+      span {
         background: #fff;
       }
       </style>
-        <h2>Category : <p class='white'>"""+category+"""</p></h2>
-        <h3>Name : <p class='white'>"""+desp+"""</p></h3>
+        <h2>Category : <span>"""+category+"""</span></h2>
+        <h3>Name : <span>"""+desp+"""</span></h3>
         <img src='"""+image+"""'>
-        <br><p>Link : <p class='white'>"""+u_link+"""</p></p>
+        <br><p>Link : <span>"""+u_link+"""</span></p>
       </body>
     </html>
     """
