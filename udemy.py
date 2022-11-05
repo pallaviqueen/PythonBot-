@@ -9,7 +9,7 @@ import sys
 sender_email = sys.argv[0]
 receiver_email = sys.argv[1]
 password = sys.argv[2]
-print(sender_email,reciever_email,password)
+print(sender_email,receiver_email,password)
 message = MIMEMultipart("alternative")
 message["Subject"] = "Udemy free course link"
 message["From"] = sender_email
