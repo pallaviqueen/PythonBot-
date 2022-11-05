@@ -20,10 +20,18 @@ def Sender(category,desp,image,u_link):
     html = """\
     <html>
       <body>
-        <h2>Category : <font style='color:#c45edd'>"""+category+"""</font></h2>
-        <h3>Name : """+desp+"""</h3>
+      <style>
+      body {
+        background: #c45edd;
+      }
+      span {
+        background: #fff;
+      }
+      </style>
+        <h2>Category : <span>"""+category+"""</span></h2>
+        <h3>Name : <span>"""+desp+"""</span></h3>
         <img src='"""+image+"""'>
-        <br><p>Link : """+u_link+"""</p>
+        <br><p>Link : <span>"""+u_link+"""</span></p>
       </body>
     </html>
     """
