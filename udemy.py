@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 import os
 
 sender_email = os.environ['s_e']
-receiver_email = os.environ['r_e']
+receiver_email = list(os.environ['r_e'])
 password = os.environ['pass']
 
 message = MIMEMultipart("alternative")
