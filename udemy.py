@@ -7,7 +7,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
-receiver_email = list(os.environ['r_e'])
+receiver_email = str(os.environ['r_e']).strip('][').split(', ')
 print(receiver_email)
 
 def Sender(category,desp,image,u_link):
