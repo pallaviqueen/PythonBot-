@@ -70,4 +70,5 @@ for i in data['results'][::-1]:
             except:
                 print(f"{send} no. link failed due to time format not matched , \nTime :- {i['sale_start'][:25]} & Name :- {i['name']}")
 writefile = open('till_time.txt','w').write(i['sale_start'][:25])
+os.environ['time'] = str(i['sale_start'][:25])
 print('process completed...')
