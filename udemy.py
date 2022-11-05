@@ -25,9 +25,9 @@ def Sender(category,desp,image,u_link):
       </style>
       <body>
         <h2>Category : <font style='color:#a200ff'>"""+category+"""</font></h2>
-        <h3>Name : """+desp+"""</h3>
+        <h3><font style='color:#a200ff'>Name : </font>"""+desp+"""</h3>
         <img src='"""+image+"""'>
-        <br><p>Link : """+u_link+"""</p>
+        <br><p><font style='color:#a200ff'>Link : </font>"""+u_link+"""</p>
       </body>
     </html>
     """
