@@ -35,10 +35,5 @@ jobs:
           pass: ${{secrets.PASSWORD}}
         run: |
           pip install -r requirements.txt
-          python3 udemy.py
-          git config user.name ${{secrets.GH_USERNAME}}
-          git config user.email ${{secrets.GH_EMAIL}}
-          git add .
-          git commit -m "Changed time"
-          git push origin
+          python3 test.py
 
